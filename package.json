@@ -1,6 +1,7 @@
 {
   "name": "react-3d",
   "version": "0.1.0",
+  "homepage": "https://mever.me/testing",
   "private": true,
   "dependencies": {
     "@react-three/drei": "^9.77.4",

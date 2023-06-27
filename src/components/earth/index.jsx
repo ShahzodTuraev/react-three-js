@@ -17,13 +17,13 @@ export const Earth=(props)=>{
     const cloudsRef = useRef();
     useFrame(({clock})=>{
       const elapsedTime = clock.getElapsedTime();
-      earthRef.current.rotation.y = elapsedTime / 2;
-      cloudsRef.current.rotation.y = elapsedTime / 2;
+      earthRef.current.rotation.y = elapsedTime / 6;
+      cloudsRef.current.rotation.y = elapsedTime / 6;
     })
   return(
     <>
       {/* <ambientLight intensity = {1} /> */}
-      <pointLight color="#f6f3ea" position={[2, 0, 2]} intensity={1.3}/>
+      <pointLight color="#f6f3ea" position={[-8, 0, 10]} intensity={1.2}/>
       <Stars
         radius={300}
         depth={60}
@@ -33,7 +33,7 @@ export const Earth=(props)=>{
         fade={true}
       />
       <mesh ref={cloudsRef}>
-        <sphereGeometry args={[1.005, 32, 32]}/>
+        <sphereGeometry args={[2.505, 62, 62]}/>
         <meshPhongMaterial
           map={cloudsMap}
           opacity={0.4}
@@ -43,7 +43,7 @@ export const Earth=(props)=>{
         />
       </mesh>
       <mesh ref={earthRef}>
-        <sphereGeometry args={[1, 32, 32]}/>
+        <sphereGeometry args={[2.5, 62, 62]}/>
         <meshPhongMaterial specularMap={specularMap}/>
         <meshStandardMaterial 
           map={colorMap}
@@ -51,15 +51,14 @@ export const Earth=(props)=>{
           metalness={0.4}
           roughness={0.7}
         />
-        <OrbitControls 
+        {/* <OrbitControls 
           enableZoom={true}
           enablePan={true}
           enableRotate={true}
           zoomSpeed={0.6}
           panSpeed={0.5}
           rotateSpeed={0.4}
-
-        />
+        /> */}
       </mesh>
     </>
   )
